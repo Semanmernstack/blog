@@ -1,0 +1,7 @@
+{
+  "name": "blog-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
