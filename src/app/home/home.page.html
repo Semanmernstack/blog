@@ -1,20 +1,57 @@
-<ion-header [translucent]="true">
+<ion-header color="red" >
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title slot="">
+      Semans Blog
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+    debounce="800"
+    #searchInput
+    mode="ios"
+    class="'ion-searchbar"
+    placeholder="search"
+  >
+  
+  </ion-searchbar>
+   
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-item [routerLink]="['/add-form-page']">
+    Add Blog
+  </ion-item>
+  
+  <ion-row>
+    @for(item of blogPosts; track item.id) { 
+      <ion-col>
+        <ion-card>
+          <p>
+            <ion-text>
+              <strong>{{item?.category}}</strong>
+            </ion-text>
+          </p>
+          <ion-thumbnail>
+            <ion-img [src]="item?.image"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            
+            <h2>{{item?.title}}</h2>
+            
+            <h5 >{{item?.description}}</h5>
+            <p [routerLink]="['/details-page', item?.id]">read more</p>
+          </ion-label>
+          <ion-button color="danger" (click)="deletePost(item.id)">
+            Delete
+          </ion-button>
+          <ion-button [routerLink]="['/edit', item?.id]">Edit</ion-button>
+        </ion-card>
+      </ion-col>
+    }
+  </ion-row>
 </ion-content>
+ 
+
+
+

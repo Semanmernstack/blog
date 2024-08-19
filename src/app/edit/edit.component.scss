@@ -1,0 +1,106 @@
+/* Basic styles for ion-card and form elements */
+ion-card {
+    margin: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-card-header,
+  ion-card-content {
+    padding: 1rem;
+  }
+  
+  ion-item {
+    margin: 0.5rem 0;
+  }
+  
+  ion-label {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  ion-input,
+  ion-textarea {
+    font-size: 16px;
+    padding: 0.5rem;
+  }
+  
+  ion-button {
+    margin-top: 1rem;
+    --background: #3880ff;
+    --color: #fff;
+    font-size: 16px;
+    padding: 0.75rem;
+  }
+  
+  /* Responsive design for different screen sizes */
+  
+  /* For screens 600px and below (phones) */
+  @media (max-width: 600px) {
+    ion-card {
+      margin: 0.5rem;
+    }
+  
+    ion-label {
+      font-size: 12px;
+    }
+  
+    ion-input,
+    ion-textarea {
+      font-size: 14px;
+    }
+  
+    ion-button {
+      font-size: 14px;
+      padding: 0.75rem;
+    }
+  }
+  
+  /* For screens between 601px and 768px (tablets and larger phones) */
+  @media (min-width: 601px) and (max-width: 768px) {
+    ion-card {
+      margin: 1rem;
+    }
+  
+    ion-label {
+      font-size: 13px;
+    }
+  
+    ion-input,
+    ion-textarea {
+      font-size: 15px;
+    }
+  
+    ion-button {
+      font-size: 15px;
+      padding: 0.75rem 1rem;
+    }
+  }
+  
+  /* For screens larger than 768px (tablets and desktops) */
+  @media (min-width: 769px) {
+    ion-card {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+  
+    ion-card-header,
+    ion-card-content {
+      padding: 1.5rem;
+    }
+  
+    ion-label {
+      font-size: 16px;
+    }
+  
+    ion-input,
+    ion-textarea {
+      font-size: 18px;
+    }
+  
+    ion-button {
+      font-size: 16px;
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  

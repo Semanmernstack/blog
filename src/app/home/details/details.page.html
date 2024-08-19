@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>News Details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div *ngIf="newsItem">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ newsItem.title }}</ion-card-title>
+          <p>jjj</p>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-img *ngIf="newsItem.image" [src]="newsItem.image" alt="News Image"></ion-img>
+          <h2>{{ newsItem.category }}</h2>
+          <p>{{ newsItem.description }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+   
+  </ion-content>
+</ion-content>
+
