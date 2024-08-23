@@ -22,10 +22,18 @@ export class DetailsPage implements OnInit {
   ngOnInit() {
     const postId = this.route.snapshot.paramMap.get('id');
     if (postId) {
-      this.jsonService.getBlogPosts().subscribe(posts => {
-        this.newsItem = posts.find((post: any) => post.id === postId);
+      this.jsonService.getBlogPostById(postId).subscribe(post => {
+        this.newsItem = post || {};
+      }, error => {
+        console.error('Error fetching blog post:', error);
       });
     }
+    //const postId = this.route.snapshot.paramMap.get('id');
+    //if (postId) {
+    //  this.jsonService.getBlogPosts().subscribe(posts => {
+    //    this.newsItem = posts.find((post: any) => post.id === postId);
+    //  });
+   // }
   }
 }
 

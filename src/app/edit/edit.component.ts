@@ -16,25 +16,36 @@ export class EditComponent  implements OnInit {
 
   newsItem: any = {};
   selectedFile: File | null = null;
+  imageUrl: string = ''
+  
 
   constructor(private route: ActivatedRoute, private jsonService: JsonService, private router: Router) {}
-
   ngOnInit() {
     const itemId = this.route.snapshot.paramMap.get('id');
     if (itemId) {
-      this.jsonService.getBlogPosts().subscribe(posts => {
-        this.newsItem = posts.find((post: any) => post.id === itemId);
+      this.jsonService.getBlogPostById(itemId).subscribe(post => {
+        this.newsItem = post;
+        this.imageUrl = post?.image || 'assets/img/placeholder.png';  // Set initial image URL
       });
     }
   }
+  
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
+    if (this.selectedFile) {
+      // Show preview of the selected image
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }
   }
 
   updateBlog() {
     if (this.selectedFile) {
       this.jsonService.uploadImage(this.selectedFile).subscribe(url => {
-        this.newsItem.img = url;
+        this.newsItem.image = url;
         if (this.newsItem.id) {
           this.jsonService.updateBlogPost(this.newsItem.id, this.newsItem).subscribe(() => {
             this.router.navigate(['/']);
@@ -53,6 +64,8 @@ export class EditComponent  implements OnInit {
       }
     }
   }
+
+
 
   //updateBlog() {
   //  if (this.newsItem.id) {

@@ -19,9 +19,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-item [routerLink]="['/add-form-page']">
-    Add Blog
-  </ion-item>
+  <ion-button>
+    <ion-item [routerLink]="['/add-form-page']">
+      Add Blog
+    </ion-item> 
+  </ion-button>
+
+   
+  
+  
   
   <ion-row>
     @for(item of blogPosts; track item.id) { 
@@ -40,7 +46,9 @@
             <h2>{{item?.title}}</h2>
             
             <h5 >{{item?.description}}</h5>
-            <p [routerLink]="['/details-page', item?.id]">read more</p>
+
+            <p [routerLink]="['/details-page', item?.id]">read more...</p>
+           
           </ion-label>
           <ion-button color="danger" (click)="deletePost(item.id)">
             Delete

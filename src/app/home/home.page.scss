@@ -21,7 +21,7 @@ ion-item {
 
 /* Card Styles */
 ion-card {
-  height: 300px;          
+  height: 72i0px;          
   padding: 10px;         
   margin: 8px 0;         
   border-radius: 8px;   
@@ -34,7 +34,10 @@ ion-label, p {
   margin-top: 5px;       
 }
 ion-label, h2 {
-  color: #ff000450;
+  color: red;
+  box-shadow: blue;
+  margin-top: 10px;
+  margin-bottom: 20px;
         
 }
 ion-label, h5 {
@@ -91,32 +94,6 @@ ion-img {
   }
 }
 
-/* For devices larger than 768px and up to 1024px */
-@media (min-width: 768px) and (max-width: 1024px) {
-  ion-card {
-    height: 250px;       
-  }
 
-  ion-item {
-    font-size: 16px;     
-  }
 
-  ion-text {
-    font-size: 16px;      
-  }
-}
 
-/* For devices larger than 1024px */
-@media (min-width: 1024px) {
-  ion-card {
-    height: 600px;        
-  }
-
-  ion-item {
-    font-size: 18px;      
-  }
-
-  ion-text {
-    font-size: 18px;      
-  }
-}

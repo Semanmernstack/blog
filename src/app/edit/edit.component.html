@@ -19,7 +19,8 @@
 
         <ion-item>
           <ion-label position="floating">Description</ion-label>
-          <ion-textarea [(ngModel)]="newsItem.content" name="content" required></ion-textarea>
+          <ion-textarea [(ngModel)]="newsItem.description" name="description"></ion-textarea>
+         
         </ion-item>
 
         <ion-item>
@@ -31,12 +32,20 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Image</ion-label>
+          <ion-label>Edit Image</ion-label>
           <input type="file" (change)="onFileSelected($event)" />
-          <ion-img [src]="newsItem.img || 'assets/img/placeholder.png'"></ion-img>
         </ion-item>
 
-       
+        
+
+        
+        <ion-item>
+        
+          
+          <ion-img [src]="imageUrl || 'assets/img/placeholder.png'"></ion-img>
+     
+        </ion-item>
+        
 
         <ion-button expand="full" type="submit" [disabled]="!blogForm.form.valid">Update</ion-button>
       </ion-card-content>

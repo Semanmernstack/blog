@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { Storage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage';
-import { Firestore, addDoc, collection, collectionData, deleteDoc, doc, setDoc, writeBatch } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDoc, setDoc, writeBatch } from '@angular/fire/firestore';
 import { Observable, from, throwError } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
@@ -13,6 +13,8 @@ export interface BlogPost {
   img: string;
   snippet: string;
   date: string;
+  desciption: string;
+  image: string;
 }
 
 
@@ -82,4 +84,16 @@ export class JsonService {
       })
     );
   }
+
+  getBlogPostById(id: string): Observable<BlogPost | undefined> {
+    const blogDocRef = doc(this.firestore, `blogs/${id}`);
+    return from(getDoc(blogDocRef)).pipe(
+      map(docSnap => docSnap.exists() ? (docSnap.data() as BlogPost) : undefined),
+      catchError(error => {
+        console.error('Error fetching blog post:', error);
+        return throwError(() => new Error(error));
+      })
+    );
+  }
+  
 }

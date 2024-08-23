@@ -12,7 +12,7 @@ export const routes: Routes = [
     pathMatch: "full"
   },
   {
-    path: 'details-page/:itemId', 
+    path: 'details-page/:id', 
     component: DetailsPage
   },
   { path: 'edit/:id', component: EditComponent },

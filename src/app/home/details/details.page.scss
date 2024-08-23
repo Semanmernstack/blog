@@ -1,0 +1,60 @@
+/* General styles for the entire page */
+ion-content {
+    --background: #f4f4f4; /* Light background color for the content area */
+  }
+  
+  /* Styles for the header */
+  ion-header {
+    --background: whitesmoke; /* Dark blue background for the header */
+    --color: #ffffff; /* White text color for the header */
+  }
+  
+  ion-toolbar {
+    --background: red; 
+  }
+  
+  ion-title {
+    --color: #ffffff;
+  }
+  
+  /* Styles for the ion-card */
+  ion-card {
+    --background: #ffffff; 
+   
+    --border-radius: 10px; 
+    margin: 16px; 
+  }
+  
+  /* Styles for the card header */
+  ion-card-header {
+    --background: blue;
+    --color: #ffffff; 
+  }
+  
+  /* Styles for the card title */
+  ion-card-title {
+    font-size: 1.5rem; /* Larger font size for the card title */
+    font-weight: bold; /* Bold text for the title */
+  }
+  
+  /* Styles for the card content */
+  ion-card-content {
+    color: gray; /* Dark gray color for the text in the card content */
+    font-size: 1rem; /* Set font size */
+    padding: 16px; /* Add padding inside the card content */
+  }
+  
+  /* Styles for the category heading */
+  h2 {
+    color: #003366; /* Dark blue color for the category heading */
+    font-size: 1.25rem; /* Slightly larger font size for the category heading */
+    margin-top: 8px; /* Add some space above the category heading */
+  }
+  
+  /* Styles for the image */
+  ion-img {
+    border-radius: 10px; /* Rounded corners for the image */
+    width: 100%; /* Make the image fill the card width */
+    height: 70%; /* Maintain aspect ratio of the image */
+  }
+  
